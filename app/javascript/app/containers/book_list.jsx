@@ -15,8 +15,10 @@ class BookList extends React.Component {
   }
 
   renderBook() {
+    if this.props.books {
     const { books } = this.props;
     return books.map((book) => <Book book={book} key={book.id} />);
+  }
   }
 
   render() {
@@ -24,6 +26,7 @@ class BookList extends React.Component {
         <div className="main-content-container">
           <div className="main-content">
            <div className='home-book-list'>
+           <h1> GreatReads </h1>
             { this.renderBook() }
            </div>
            </div>
