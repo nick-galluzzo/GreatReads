@@ -32,7 +32,12 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "webpack-dev-server": "^3.10.1"
   },
-  "scripts": {
-      "start": "node index.js"
+    "engines": {
+      "node": "12.5.0",
+      "npm": "6.9.0"
+    },
+    "scripts": {
+      "postinstall": "webpack"
     }
+  }
 }
