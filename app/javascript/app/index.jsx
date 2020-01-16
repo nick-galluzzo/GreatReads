@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect, Switch }
   from 'react-router-dom';
-import { createHistory as history } from 'history';
+import { createHistory } from 'history';
 
 // start
 
@@ -16,7 +16,7 @@ import App from './components/app';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={createHistory}>
       <Switch>
         <Route component={App} />
       </Switch>
