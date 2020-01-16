@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchBooks, fetchUser, fetchShelves } from '../actions/index';
+import { fetchBooks, fetchShelves } from '../actions/index';
 
 import Book from '../components/book';
 
