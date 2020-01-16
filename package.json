@@ -37,8 +37,6 @@
       "npm": "6.9.0"
     },
     "scripts": {
-        "webpack" : "webpack", // invoke this command from npm run dev & npm run build
-        "dev": "npm run webpack -- --mode development --watch",
-        "build": "npm run webpack -- --mode production"
-    }
+      "postinstall": "webpack"
+  }
 }
