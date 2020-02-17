@@ -39,7 +39,7 @@ export default class BookshelfOptions extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { this.renderTableBody(selectedShelf.books) }
+            { this.renderTableBody(selectedShelf) }
           </tbody>
         </table>
       </div>
