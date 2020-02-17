@@ -40,7 +40,7 @@ class UserShelves extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.shelves !== this.props.shelves) {
-      this.setState({selectedShelf: this.props.shelves[0].read})
+      this.setState({selectedShelf: this.props.shelves[0].read.books})
     }
     if (prevState.selectedShelf !== this.state.selectedShelf) {
       this.updateShelfName();
@@ -48,7 +48,7 @@ class UserShelves extends React.Component {
   }
 
   handleClick(currentShelf) {
-    this.setState({selectedShelf: currentShelf })
+    this.setState({selectedShelf: currentShelf.books })
   }
 
 
@@ -70,6 +70,18 @@ class UserShelves extends React.Component {
       )
   }
 
+  combineShelves() {
+    // This works but it's not scalable - need to restructure jbuilder format in API
+    // If formatted correctly, we can pass params with the shelf name to create a DRY
+    // method that allows us to comine all shelves.
+
+      let readShelf = Object.values(this.props.shelves[0])[0].books
+      let currentShelf = Object.values(this.props.shelves[1])[0].books
+      let combinedShelf = readShelf.concat(currentShelf)
+
+      this.setState({selectedShelf: combinedShelf})
+  }
+
   render() {
     return (
       <div className='main-content-container'>
@@ -78,6 +90,9 @@ class UserShelves extends React.Component {
           <section className="bookshelf-navigation-container">
             <h3 id='bookshelf-title'>Bookshelves</h3>
             {this.defineShelves()}
+            <div className="bookshelf-navigation">
+            <p onClick={() => {this.combineShelves()}}>Read + Reading</p>
+            </div>
           </section>
           <section className="bookshelf-items-container">
             <BookshelfOptions selectedShelf={this.state.selectedShelf} shelfName={this.updateShelfName(this.state.selectedShelf.name)}/>
